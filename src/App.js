@@ -1,24 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
+
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Navigate,
+  Route,
+  Routes,
+} from 'react-router-dom';
+
+import Home from './pages/Home';
+import Login from './pages/Login/Login';
+import Reports from './pages/Reports';
+import PrivateRoute from './Utils/PrivateRoute';
+import Table from './pages/Table';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route
+            path='/login'
+            element={
+              sessionStorage.getItem('user') == null ? (
+                <Login />
+              ) : (
+                <Navigate to={'/home'} />
+              )
+            }
+          />
+          <Route element={<PrivateRoute />}>
+            <Route path='/home' element={<Home />} />
+            <Route path='/reports' element={<Reports />} />
+            <Route path='/table' element={<Table />} />
+            <Route path='*' element={<Navigate to={'/home'} />} />
+          </Route>
+        </Routes>
+      </Router>
+    </>
   );
 }
 
