@@ -1,18 +1,13 @@
 import './App.css';
 
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Navigate,
-  Route,
-  Routes,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
 
+import Apartments from './pages/Apartments';
 import Home from './pages/Home';
 import Login from './pages/Login/Login';
-import Reports from './pages/Reports';
-import PrivateRoute from './Utils/PrivateRoute';
 import Table from './pages/Table';
+import PrivateRoute from './Utils/PrivateRoute';
 
 function App() {
   return (
@@ -31,8 +26,10 @@ function App() {
           />
           <Route element={<PrivateRoute />}>
             <Route path='/home' element={<Home />} />
-            <Route path='/reports' element={<Reports />} />
-            <Route path='/table' element={<Table />} />
+            {/* <Route path='/reports' element={<Reports />} /> */}
+            <Route path='/users' element={<Table />} />
+            <Route path='/apartments' element={<Apartments />} />
+
             <Route path='*' element={<Navigate to={'/home'} />} />
           </Route>
         </Routes>

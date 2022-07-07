@@ -2,27 +2,51 @@
   font-size: 12px;
 }
 .home {
+  height: 100%;
+  padding: 0;
+  margin: 0;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2% 15%;
-  height: 40vh;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0%;
 }
 
 .relays-container {
-  min-height: 100px;
-  margin: 0 10%;
+  min-height: 100%;
+  max-width: 650px;
 }
 
 .relays {
-  min-height: 100px;
+  min-height: 100%;
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 
 .switch {
   margin: 0 20px;
+}
+
+.selectDiv {
+  display: flex;
+}
+
+.formSelect {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.h4Select {
+  margin: 0px;
+}
+
+.select {
+  height: 80%;
+  margin: 0% 5%;
 }

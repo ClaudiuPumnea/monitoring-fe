@@ -1,0 +1,26 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #c7bcbc;
+  text-align: left;
+  padding: 8px;
+  font-size: 32px;
+}
+
+.formTable {
+  display: flex;
+  gap: 5px;
+}
+
+.formTable td:last-child {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+form * {
+  font-size: 20px;
+}

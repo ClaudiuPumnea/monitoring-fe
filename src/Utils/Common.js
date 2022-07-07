@@ -41,6 +41,71 @@ export async function getDataToPlot(valueName, roomId, startDate, endDate) {
   return data;
 }
 
+export async function unlinkUser(apartmentId) {
+  var config = {
+    method: 'put',
+    url: 'http://localhost:3050/apartments/unlinkUser',
+    headers: {
+      Authorization: 'Bearer null',
+      'Content-Type': 'application/json',
+    },
+    data: { apartmentId },
+  };
+  axios(config);
+}
+
+export async function register(user) {
+  var config = {
+    method: 'post',
+    url: 'http://localhost:3050/auth/register',
+    headers: {
+      Authorization: 'Bearer null',
+      'Content-Type': 'application/json',
+    },
+    data: user,
+  };
+  return await (
+    await axios(config)
+  ).data;
+}
+
+export async function linkUser(apartmentId, userId) {
+  var config = {
+    method: 'put',
+    url: 'http://localhost:3050/apartments/linkUser',
+    headers: {
+      Authorization: 'Bearer null',
+      'Content-Type': 'application/json',
+    },
+    data: { apartmentId, userId },
+  };
+  axios(config);
+}
+
+export async function getUsers() {
+  var config = {
+    method: 'get',
+    url: 'http://localhost:3050/users/',
+    headers: {},
+  };
+
+  return await (
+    await axios(config)
+  ).data;
+}
+
+export async function getApartments() {
+  var config = {
+    method: 'get',
+    url: 'http://localhost:3050/apartments/allApartmentsWithUser',
+    headers: {},
+  };
+
+  return await (
+    await axios(config)
+  ).data;
+}
+
 function padTo2Digits(num) {
   return num.toString().padStart(2, '0');
 }

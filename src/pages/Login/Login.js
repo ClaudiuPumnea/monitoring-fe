@@ -56,7 +56,7 @@ function Login() {
   };
   return (
     <div className='Login'>
-      Login <br />
+      <h1>Login</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group size='lg' controlId='email'>
           <Form.Label>Email</Form.Label>

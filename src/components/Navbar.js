@@ -5,19 +5,27 @@ import { IconContext } from 'react-icons';
 import * as AiIcons from 'react-icons/ai';
 import * as BsIcons from 'react-icons/bs';
 import * as FaIcons from 'react-icons/fa';
+import * as IoIcons from 'react-icons/io';
 import { Link } from 'react-router-dom';
 
-import {
-  checkTokenAndUser,
-  getUser,
-  removeUserSession,
-} from './../Utils/Common';
+import { checkTokenAndUser, getUser, removeUserSession } from './../Utils/Common';
 import { SidebarData } from './SidebarData';
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
+  const [state, setState] = useState(null);
 
   const showSidebar = () => setSidebar(!sidebar);
+
+  function hadleOnClick() {
+    if (state != null) {
+      window.open(
+        'mailto:supportMonitoringAndControl@gmail.com?subject=Support'
+      );
+    } else {
+      setState(true);
+    }
+  }
 
   const user = getUser();
   return (
@@ -54,6 +62,19 @@ function Navbar() {
                 </li>
               );
             })}
+            <li className='nav-text'>
+              <Link
+                to='/support'
+                onClick={() => {
+                  alert(
+                    'Gas is over the level! Please, make sure everything is safe or leave the apartment and call emergency'
+                  );
+                }}
+              >
+                <IoIcons.IoMdHelpCircle />
+                <span>Support</span>
+              </Link>
+            </li>
             {checkTokenAndUser() ? (
               <li className='nav-text'>
                 <Link to='/login' onClick={removeUserSession}>

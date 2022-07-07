@@ -14,6 +14,8 @@ const SwitchButton = ({ isOn, electricalRelayId }) => {
   function handleOnChange(value) {
     setStatus(value);
     updateRelayStatus(electricalRelayId);
+    console.log(electricalRelayId);
+    console.log(value);
   }
 
   function updateRelayStatus(electricalRelayId) {
@@ -42,7 +44,6 @@ const SwitchButton = ({ isOn, electricalRelayId }) => {
         height={20}
         width={48}
       />
-      <h1>{isOn}salut</h1>
     </div>
   );
 };
